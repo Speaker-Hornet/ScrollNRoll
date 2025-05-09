@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /ScrollNRoll/Library
 /ScrollNRoll/Temp
+/ScrollNRoll/UserSettings
+ScrollNRoll/.vsconfig
