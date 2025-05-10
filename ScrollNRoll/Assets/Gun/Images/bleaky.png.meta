@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 78ec2aff5afcb283db44aed32cb213bc
+guid: b3b115d2d4a5ad64aac46122370e331b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -84,12 +84,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 10
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -97,89 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anim_gun_temp_0
-      rect:
-        serializedVersion: 2
-        x: 380
-        y: 67
-        width: 190
-        height: 210
-      alignment: 3
-      pivot: {x: 1, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5113233f7e6e6840a82167ff573b0d4f
-      internalID: 800939409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_gun_temp_1
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 67
-        width: 190
-        height: 210
-      alignment: 3
-      pivot: {x: 1, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36e88069b93fa85a2a7472ae8ca0d1b9
-      internalID: 353363390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_gun_temp_2
+      name: bleaky_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 67
-        width: 190
-        height: 210
-      alignment: 3
-      pivot: {x: 1, y: 1}
+        y: 0
+        width: 1478
+        height: 1373
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a2d859be053819d1bd0ef6ad66466d3
-      internalID: -971437223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anim_gun_temp_3
-      rect:
-        serializedVersion: 2
-        x: 570
-        y: 67
-        width: 190
-        height: 210
-      alignment: 3
-      pivot: {x: 1, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a644d249bbbc7a5280afbc06dad5e30
-      internalID: 2011880997
+      spriteID: 23f6ec423639b85d3916869798e23143
+      internalID: -1011695993
       vertices: []
       indices: 
       edges: []
@@ -188,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3701bc216ccace04fafccf5195624c45
+    spriteID: 9c828dc4e8c82987d8c2a58ad6ffaaad
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      anim_gun_temp_0: 800939409
-      anim_gun_temp_1: 353363390
-      anim_gun_temp_2: -971437223
-      anim_gun_temp_3: 2011880997
+      bleaky_0: -1011695993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
