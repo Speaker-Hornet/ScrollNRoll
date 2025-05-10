@@ -38,7 +38,7 @@ public GameObject newEnemyButton;
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Debug.Log("Spawn enemy");
-            SpawnCube();
+            // SpawnCube();
         }
     }
 
