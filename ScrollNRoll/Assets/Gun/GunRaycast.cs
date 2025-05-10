@@ -1,40 +1,60 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunRaycast : MonoBehaviour
 {
-public GameObject newEnemyButton;
-    
-    [Header("Settings")]
-    public Camera fpsCam;
-    public RectTransform cursorUI;
+    [Header("UI Elements")]
+    public RectTransform cursorUI;      // Assign your crosshair UI element here
+    public Transform crosshairPos;      // Optional: 3D crosshair representation
 
-    [Header("Raycast")]
+    [Header("Camera Settings")]
+    public Camera fpsCam;               // Assign your FPS camera here
+
+    [Header("Gun Audio")]
+    public AudioSource audioSource;
+    public AudioClip shootClip;
+    public AudioClip dryShootClip;
+    public AudioClip reloadClip;
+
+    [Header("Raycast Settings")]
     public float range = 100f;
-    public float sensitivity  = 1.5f;
-    public float maxRange     = 100f;
+    public float rayDensity = 0.5f;
 
     [Header("Spawn Settings")]
     public GameObject testCube;
     public Vector3 spawnPosition = new Vector3(0.3f, 0.9f, -8.2f);
     public Quaternion spawnRotation = Quaternion.identity;
-
-    private Vector2 cursorPos;
+    
 
     void Start()
     {
-        // Start in center of screen
-        cursorPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        Cursor.visible = true; // Hide system cursor
+        // Ensure the system cursor is visible
+        Cursor.visible = true;
     }
 
     void Update()
     {
-        cursorUI.position = Input.mousePosition;
+        // Update the position of the crosshair UI to match the mouse position
+        if (cursorUI != null)
+        {
+            cursorUI.position = Input.mousePosition;
+        }
 
+        // Optional: Update the position of a 3D crosshair to match the UI crosshair
+        // if (crosshairPos != null && cursorUI != null)
+        // {
+        //     crosshairPos.position = cursorUI.position;
+            
+        //     cursorUI.position = Input.mousePosition;
+        // }
+
+        // Fire raycast on left mouse button click
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
         }
+
+        // Spawn test cube on F1 key press
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Debug.Log("Spawn enemy");
@@ -44,20 +64,23 @@ public GameObject newEnemyButton;
 
     void Fire()
     {
-        Ray ray = fpsCam.ScreenPointToRay(cursorUI.position);
+        cursorUI.position = Input.mousePosition;
+        // Cast a ray from the camera through the mouse position
+        Ray ray = fpsCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        audioSource.PlayOneShot(shootClip);
 
-        if (Physics.Raycast(ray, out hit, range))
+        if (Physics.SphereCast(ray, rayDensity, out hit, range))
         {
             Debug.Log("Hit " + hit.collider.name);
 
-            // Optional: apply damage if the object has a Health component
+            // Optional: Apply damage if the object has a Health component
             Health target = hit.transform.GetComponent<Health>();
             if (target != null)
             {
-                target.TakeDamage(20);
+                target.TakeDamage(50);
             }
-        } 
+        }
     }
 
     void SpawnCube()
@@ -65,31 +88,3 @@ public GameObject newEnemyButton;
         Instantiate(testCube, spawnPosition, spawnRotation);
     }
 }
-
-
-
-    // public RectTransform cursorRectTransform;
-    // public float cursorSpeed = 1f;
-
-    // private Vector2 currentPos;
-
-    // void Start()
-    // {
-    //     // Start in center of screen
-    //     currentPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
-    //     Cursor.visible = false; // Hide system cursor
-    // }
-
-    // void Update()
-    // {
-    //     float mouseX = Input.GetAxis("Mouse X");
-    //     float mouseY = Input.GetAxis("Mouse Y");
-
-    //     currentPos += new Vector2(mouseX, mouseY) * cursorSpeed;
-
-    //     // Clamp to screen bounds if you want
-    //     currentPos.x = Mathf.Clamp(currentPos.x, 0, Screen.width);
-    //     currentPos.y = Mathf.Clamp(currentPos.y, 0, Screen.height);
-
-    //     cursorRectTransform.position = currentPos;
-    // }
