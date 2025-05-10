@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: dbe77e9799f29c145be3d7db80468370
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ANT_mala
+    second: {fileID: 2100000, guid: 397579bbb123b5349b09623e0c18de1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ANT_velika
+    second: {fileID: 2100000, guid: f048dc5f01fa5ac4a9331082a47212e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ant_srednja
+    second: {fileID: 2100000, guid: dc86b51704d506f4abd3d9774304395d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenice
+    second: {fileID: 2100000, guid: 364eb8aab8f57d64f84d28cb975b6694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Baraka
+    second: {fileID: 2100000, guid: ca11b02a562b4bf4297b0c87833cb621, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bok
+    second: {fileID: 2100000, guid: 23e9108eeaf0dc147ba5cb8fe5a5ee1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Donja_terasa
+    second: {fileID: 2100000, guid: 9ed74255f5dae22488831eff7f3ecb95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontColor
+    second: {fileID: 2100000, guid: 6448ef148b4b2364cb2cb43ace1b8a17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gornja_terasa
+    second: {fileID: 2100000, guid: 5e3ccf2b0b255a9418999fd0f4e45509, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gornji_krov
+    second: {fileID: 2100000, guid: 5e738bff098aad54cbd07c2ede5b866c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ivica_terase
+    second: {fileID: 2100000, guid: c3eef4eefa84f334889f00ee757e7792, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Krovic
+    second: {fileID: 2100000, guid: 9e212b09e5fe3e847832e7874cc9c082, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Masine
+    second: {fileID: 2100000, guid: d207d2d1029968947a4a871605aa4324, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nadstresnica
+    second: {fileID: 2100000, guid: f9478b2275d437c4a87cfabe562b850b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ograda
+    second: {fileID: 2100000, guid: d92d663eb0c075d46b1d3071c7377f43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_0_bolja
+    second: {fileID: 2100000, guid: cb58bbb951bf39a45981d2be3f9aa518, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_1
+    second: {fileID: 2100000, guid: cf40912bc9dba4c46861df7fa31ad981, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_2
+    second: {fileID: 2100000, guid: 453f19b379b50264eb4796807e681616, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_3
+    second: {fileID: 2100000, guid: ff78de1dc58ffe74da4a16873c1226fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_4_Tamna
+    second: {fileID: 2100000, guid: e46b4d4fea28797429604a48779696a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_5_Tamna
+    second: {fileID: 2100000, guid: 0038050214c13c344b26f34a0ebd09f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_6_Tamna
+    second: {fileID: 2100000, guid: 34fde29029260584997834399217b8eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_7
+    second: {fileID: 2100000, guid: 93a22dd51d492cf4c8ccb6a3c619c7e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_8
+    second: {fileID: 2100000, guid: d02e8e0ed94ff5e438b233650b9e8ba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: STRANA_9
+    second: {fileID: 2100000, guid: a5b2c6247fc20d1429d423c227db6383, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terasa_pozadi
+    second: {fileID: 2100000, guid: e1fdb214e1e7d714780db934ab2aefab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zabat
+    second: {fileID: 2100000, guid: c43df1fa8b4c7104a8038b2348fdde9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zabat_mali
+    second: {fileID: 2100000, guid: 298e8eb3000b5c8438c36b69a7eb26db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zastor
+    second: {fileID: 2100000, guid: 1945bfc2b639dfd40b3d1b2fc319d905, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _1
+    second: {fileID: 2100000, guid: 789ec3ca7d97b6f4dad3adac77ead9f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _2
+    second: {fileID: 2100000, guid: 7b97f0e96cdc0bf4b9ec4b4451d50ae8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _3
+    second: {fileID: 2100000, guid: 08108416e244c284eba803f5f62feaab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _4
+    second: {fileID: 2100000, guid: fd9d4318cf9c4d64eae7d9bf3117a9b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _5
+    second: {fileID: 2100000, guid: e46f70e5c11cebf4eb9b4cdf00b6f3fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _6
+    second: {fileID: 2100000, guid: 1c74a2738a4c4494390d13b5d928f24f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _7
+    second: {fileID: 2100000, guid: c32ae217088b6794285ce3eba477eb3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Carpet_Pebble_
+    second: {fileID: 2100000, guid: 896b9fcc3119fa840989cad3bd8cd598, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Chalk_
+    second: {fileID: 2100000, guid: 810d3188199492e48b0c3cf94f30d041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Charcoal_
+    second: {fileID: 2100000, guid: e29c6fe7a245b454db3e6415dbe042cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _DarkGray_
+    second: {fileID: 2100000, guid: c08ad51f2d22a284b9687eb4ecc5c465, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Grid_
+    second: {fileID: 2100000, guid: b1908d94dfb20434da0a6064822c6832, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: garaza
+    second: {fileID: 2100000, guid: 978eb29d7416d964a9a29c317923159c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ulaz
+    second: {fileID: 2100000, guid: 1c5224c123c894f49b691c4d46396265, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 2
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 1
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
