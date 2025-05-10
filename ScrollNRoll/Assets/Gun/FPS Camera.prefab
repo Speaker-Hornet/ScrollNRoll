@@ -151,11 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90017b6ad27edb42a800e50f49454ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorUI: {fileID: 2881486084873465588}
-  crosshairPos: {fileID: 0}
+  newEnemyButton: {fileID: 27356002052623515, guid: bb31fa0c8ad244872b54346d8bfe37c3, type: 3}
   fpsCam: {fileID: 3504960789850812381}
+  cursorUI: {fileID: 2881486084873465588}
   range: 100
-  rayDensity: 0.5
+  sensitivity: 1.5
+  maxRange: 100
   testCube: {fileID: 0}
   spawnPosition: {x: 0.3, y: 0.9, z: -8.2}
   spawnRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -193,7 +194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 6.91}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7774970042709314576
