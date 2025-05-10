@@ -28,6 +28,9 @@
 # Visual Studio cache directory
 .vs/
 
+ScrollNRoll/.vscode/
+ScrollNRoll/ProjectSettings/SceneTemplateSettings.json
+
 # Gradle cache directory
 .gradle/
 
