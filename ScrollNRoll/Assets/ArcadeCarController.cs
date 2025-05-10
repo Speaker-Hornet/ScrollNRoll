@@ -4,16 +4,18 @@ using UnityEngine;
 public class ArcadeCarController : MonoBehaviour
 {
     [Header("Car Settings")]
-    public float acceleration = 1500f;
-    public float maxSpeed = 50f;
-    public float steering = 80f;
-    public float driftFactor = 0.95f;
-    public float grip = 2f;
+    [SerializeField] float acceleration = 1500f;
+    [SerializeField] float maxSpeed = 50f;
+    [SerializeField] float steering = 80f;
+    [SerializeField] float driftFactor = 0.95f;
+    [SerializeField] float grip = 2f;
 
     private Rigidbody rb;
     private float moveInput;
     private float steerInput;
     private Vector3 localVelocity;
+    [SerializeField] float lowSpeedTurnRate;
+    private float lowSpeedTurnRateConst;
 
     void Start()
     {
@@ -28,20 +30,35 @@ public class ArcadeCarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log(localVelocity);
         localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
 
         // Limit max forward speed
-        if (localVelocity.z < maxSpeed)
+        if (localVelocity.z < maxSpeed && localVelocity.z > -maxSpeed)
         {
             rb.AddForce(transform.forward * moveInput * acceleration * Time.fixedDeltaTime);
         }
 
         // Steering
-        float steerAmount = steerInput * steering * Time.fixedDeltaTime * Mathf.Clamp01(localVelocity.z / 10f);
+        HandleSteering();
+        // Drift logic
+        HandleDrift();
+        
+    }
+
+    void HandleSteering(){
+        if (localVelocity.z < 0.5){
+            lowSpeedTurnRateConst = lowSpeedTurnRate;
+        } 
+        else {
+            lowSpeedTurnRateConst = 0;
+        }
+
+        float steerAmount = steerInput * steering * Time.fixedDeltaTime * (Mathf.Clamp01(localVelocity.z / 10f) + lowSpeedTurnRateConst);
         Quaternion steerRotation = Quaternion.Euler(0, steerAmount, 0);
         rb.MoveRotation(rb.rotation * steerRotation);
-
-        // Drift logic
+    }
+    void HandleDrift(){
         Vector3 driftForce = transform.right * Vector3.Dot(rb.linearVelocity, transform.right) * grip;
         rb.AddForce(-driftForce * driftFactor, ForceMode.Acceleration);
     }
