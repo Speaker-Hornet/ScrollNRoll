@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SceneManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject shoot;
     [SerializeField] GameObject strip;
     [SerializeField] GameObject menu;
+    [SerializeField] Fader fader;
     void Awake()
     {
         Instance = this;
@@ -20,7 +22,11 @@ public class SceneManager : MonoBehaviour
         EnableIntro();
         DisablePlayer();
     }
-
+    
+    IEnumerator WaitAndExecute(){
+        yield return new WaitForSeconds(19f); // Wait for 20 seconds
+        FadeToBlackAndBack(); // Call the function
+    }
     public void EnableShoot(){
         shoot.SetActive(true);
     }
@@ -47,6 +53,7 @@ public class SceneManager : MonoBehaviour
     }
     public void EnableStrip(){
         strip.SetActive(true);
+        StartCoroutine(WaitAndExecute());
     }
     public void DisableStrip(){
         strip.SetActive(false);
@@ -54,6 +61,12 @@ public class SceneManager : MonoBehaviour
     public void DisableMenu(){
         menu.SetActive(false);
     }
+    public void FadeToBlackAndBack(){
+        fader.FadeToBlackAndBack();
+    }
+
+
+    
 
     public void PlayGame(){
         EnableUI();
