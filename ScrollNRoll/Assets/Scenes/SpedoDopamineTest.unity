@@ -23231,10 +23231,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
-      propertyPath: ammo
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
       propertyPath: guns
       value: 
       objectReference: {fileID: 1566020512}
@@ -23251,17 +23247,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1712012171}
     - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
-      propertyPath: started
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 1192709559}
-    - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
-      propertyPath: goalLaps
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4899760464287668802, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
       propertyPath: m_Name
       value: GameManager

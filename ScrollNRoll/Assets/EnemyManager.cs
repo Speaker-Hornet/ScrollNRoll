@@ -40,7 +40,11 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        if(GameManager.Instance.started)
+        {
+            currentTime += Time.deltaTime;
+        }
+        
 
         if (currentTime >= groupiousSpawnTime)
         {

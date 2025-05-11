@@ -78,5 +78,7 @@ public class SceneManager : MonoBehaviour
         DisableMenu();
         DisableIntro();
         DisableStrip();
+
+        GameManager.Instance.started = true;
     }
 }

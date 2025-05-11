@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfLaps: 0
-  goalLaps: 999
+  goalLaps: 2
   dopamineMax: 100
   dopamineCurrent: 0
   dopamineToDeplete: 5
-  ammo: 0
+  ammo: 20
   ammoToAdd: 5
+  rils: {fileID: 0}
+  guns: {fileID: 0}
+  AmmoText: {fileID: 0}
+  lapText: {fileID: 0}
+  shoot: {fileID: 0}
+  started: 0
