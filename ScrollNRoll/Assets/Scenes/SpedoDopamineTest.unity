@@ -23136,6 +23136,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 35852080}
     - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
+      propertyPath: shoot
+      value: 
+      objectReference: {fileID: 855490361}
+    - target: {fileID: -8442169091116527129, guid: 9de2378286cdb3e4c8fcca9f1b6ebc58, type: 3}
       propertyPath: lapText
       value: 
       objectReference: {fileID: 1712012171}
@@ -27001,6 +27005,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839537998}
   m_CullTransparentMesh: 1
+--- !u!114 &855490361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1297172826797835448, guid: 0b52c90e0a966564d8eda3f96fc7185d, type: 3}
+  m_PrefabInstance: {fileID: 339416801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005dc6fa5c6ff5a44af3864e6e88137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &858037307
 Mesh:
   m_ObjectHideFlags: 0

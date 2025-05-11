@@ -22,6 +22,8 @@ public GameObject newEnemyButton;
 
     [SerializeField] ParticleSystem pow;
 
+    public bool canShoot;
+
     void Start()
     {
         // Start in center of screen
@@ -36,6 +38,7 @@ public GameObject newEnemyButton;
         if (Input.GetButtonDown("Fire1"))
         {
             if (GameManager.Instance.ammo <= 0) return;
+            if (!canShoot) return;
             Fire();
             GameManager.Instance.ammo -= 1;
         }

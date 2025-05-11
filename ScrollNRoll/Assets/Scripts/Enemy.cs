@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
 
     void Die()
     {
+        GameManager.Instance.dopamineCurrent += 5;
         if (groupious) Destroy(this.gameObject);
         //material.mainTexture = texture;
         dead = true;

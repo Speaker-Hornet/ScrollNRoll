@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI AmmoText;
     public TextMeshProUGUI lapText;
 
+    public GunRaycast shoot;
+
 
 
     public bool started;
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
 
                 guns.SetActive(true);
                 Cursor.visible = false;
+                shoot.canShoot = true;
             }
             else
             {
@@ -80,6 +83,7 @@ public class GameManager : MonoBehaviour
 
                 guns.SetActive(false);
                 Cursor.visible = true;
+                shoot.canShoot = false;
             }
         }
 
