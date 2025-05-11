@@ -1,59 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthMeter : MonoBehaviour
+public class Dopamineometer : MonoBehaviour
 {
-    [Header("Health Settings")]
-    public float maxHealth = 100f;
-    public float currentHealth = 100f;
-    public float damageAmount = 10f;
-    public float healAmount = 10f;
+    public float maxHealth = 100.0f;
+    public float minHealthArrowAngle = 90.0f;    // Angle when health is 0
+    public float maxHealthArrowAngle = -90.0f;   // Angle when health is max
+    public float healthChangeAmount = 10.0f;
 
-    [Header("Needle Settings")]
-    public float minNeedleAngle = 120f;
-    public float maxNeedleAngle = -120f;
+    [Header("UI")]
+    public RectTransform arrow;
 
-    [Header("UI Elements")]
-    public Text healthLabel;
-    public RectTransform needle;
+    private float currentHealth;
+
+    private void Start()
+    {
+        currentHealth = maxHealth; // Initialize health
+    }
 
     private void Update()
     {
-        HandleInput();
-        UpdateHealthDisplay();
+        HandleHealthInput();
+        UpdateHealthMeter();
     }
 
-    private void HandleInput()
+    private void HandleHealthInput()
     {
-        // Test case 1: Take damage with F3
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            Debug.Log("dmg");
-            currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
+            // Take damage
+            currentHealth = Mathf.Clamp(currentHealth - healthChangeAmount, 0, maxHealth);
         }
-
-        // Test case 2: Heal with F4
+        
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            Debug.Log("heal");
-            currentHealth = Mathf.Clamp(currentHealth + healAmount, 0, maxHealth);
+            // Heal
+            currentHealth = Mathf.Clamp(currentHealth + healthChangeAmount, 0, maxHealth);
         }
     }
 
-    private void UpdateHealthDisplay()
+    private void UpdateHealthMeter()
     {
-        // Update health percentage and needle angle
-        float healthPercentage = currentHealth / maxHealth;
-        
-        if (healthLabel != null)
+        if (arrow != null)
         {
-            healthLabel.text = $"{currentHealth:F0}/{maxHealth:F0}";
-        }
-
-        if (needle != null)
-        {
-            float targetAngle = Mathf.Lerp(minNeedleAngle, maxNeedleAngle, healthPercentage);
-            needle.localEulerAngles = new Vector3(0, 0, targetAngle);
+            // Calculate health percentage and interpolate angle
+            float healthPercentage = currentHealth / maxHealth;
+            arrow.localEulerAngles = new Vector3(
+                0, 
+                0, 
+                Mathf.Lerp(minHealthArrowAngle, maxHealthArrowAngle, healthPercentage)
+            );
         }
     }
 }
