@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c0c6a8b21ce6f4eae9a445aa2344af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!114 &8544796510682369766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,4 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514b4ca38cd478048ae61715f00cabea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 40
