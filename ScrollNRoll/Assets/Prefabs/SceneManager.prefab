@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8818869157361427408}
   - component: {fileID: 3313684149959937438}
+  - component: {fileID: 7677511896851729356}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -50,3 +51,18 @@ MonoBehaviour:
   shoot: {fileID: 0}
   strip: {fileID: 0}
   menu: {fileID: 0}
+  fader: {fileID: 7677511896851729356}
+--- !u!114 &7677511896851729356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537060786061715379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dadc38bb44147f4881f4bbc9ff9b9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 0}
+  fadeDuration: 1
