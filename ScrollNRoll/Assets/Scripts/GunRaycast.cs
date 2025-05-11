@@ -26,7 +26,7 @@ public GameObject newEnemyButton;
     {
         // Start in center of screen
         cursorPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        Cursor.visible = true; // Hide system cursor
+        
     }
 
     void Update()
@@ -35,13 +35,15 @@ public GameObject newEnemyButton;
 
         if (Input.GetButtonDown("Fire1"))
         {
+            if (GameManager.Instance.ammo <= 0) return;
             Fire();
+            GameManager.Instance.ammo -= 1;
         }
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Debug.Log("Spawn enemy");
-            // SpawnCube();
-        }
+        //if (Input.GetKeyDown(KeyCode.F1))
+        //{
+        //    Debug.Log("Spawn enemy");
+        //    // SpawnCube();
+        //}
     }
 
     void Fire()

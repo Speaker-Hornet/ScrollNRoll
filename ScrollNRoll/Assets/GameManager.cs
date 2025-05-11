@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,18 @@ public class GameManager : MonoBehaviour
     public int ammo;
     public int ammoToAdd;
 
+    public GameObject rils;
+    public GameObject guns;
+
+    public TextMeshProUGUI AmmoText;
+    public TextMeshProUGUI lapText;
+
+
+
+    public bool started;
+
+
+
     public static GameManager Instance { get; private set; }
 
 
@@ -25,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         numberOfLaps = 0;
+
     }
 
     private void Start()
@@ -34,10 +48,43 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(started)
+        {
+            dopamineCurrent -= Time.deltaTime;
+        }
+
+        if(dopamineCurrent <= 0)
+        {
+            Defeat();
+        }
+
         if (startLinePassed && midLinePassed)
         {
             ready = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (rils.activeSelf == true)
+            {
+                rils.SetActive(false);
+
+
+                guns.SetActive(true);
+                Cursor.visible = false;
+            }
+            else
+            {
+                rils.SetActive(true);
+
+
+                guns.SetActive(false);
+                Cursor.visible = true;
+            }
+        }
+
+        AmmoText.text = ammo.ToString();
+        lapText.text = numberOfLaps.ToString() + "/2";
     }
 
     public void CheckLine(string line)
@@ -73,5 +120,10 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         //logic
+    }
+
+    public void Defeat()
+    {
+
     }
 }

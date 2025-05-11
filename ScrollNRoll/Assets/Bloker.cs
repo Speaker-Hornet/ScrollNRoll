@@ -51,7 +51,9 @@ public class Bloker : MonoBehaviour
 
         GameManager.Instance.dopamineCurrent -= GameManager.Instance.dopamineToDeplete;
 
-        ArcadeCarController.Instance.rb.linearVelocity /= 2f;
+        ArcadeCarController.Instance.rb.linearVelocity /= 4f;
+
+        GameManager.Instance.dopamineCurrent -= 10f;
 
         Destroy(this);
     }

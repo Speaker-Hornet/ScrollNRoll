@@ -10,6 +10,8 @@ public class BuyAmmo : MonoBehaviour
         Color newAlpha = buttonSoldImg.color;
         newAlpha.a = 1f;
         buttonSoldImg.color = newAlpha;
+        GameManager.Instance.dopamineCurrent += 10f;
+        GameManager.Instance.ammo += 10;
         this.GetComponent<Button>().interactable = false;
     }
 }

@@ -1957,7 +1957,7 @@ MonoBehaviour:
   - {fileID: 5212854311246651671}
   enemyBlockerPrefab: {fileID: 2096590114857767680, guid: 59658c0dd7d79cf4aad4cce25a17f27b, type: 3}
   enemyGroupiousPrefab: {fileID: 8294988615058143418, guid: 6ca2974ddbf975b4bb3f7991bfde4be6, type: 3}
-  groupiousSpawnTime: 20
+  groupiousSpawnTime: 2
 --- !u!1 &5439184558557519599
 GameObject:
   m_ObjectHideFlags: 0
