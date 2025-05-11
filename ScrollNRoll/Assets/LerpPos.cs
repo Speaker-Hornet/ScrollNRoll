@@ -36,5 +36,6 @@ public class LerpPos : MonoBehaviour
         {
             isLerping = false;
         }
+        if (!isLerping){SceneManager.Instance.PlayGame();}
     }
 }

@@ -7,6 +7,9 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject intro;
     [SerializeField] GameObject ui;
+    [SerializeField] GameObject shoot;
+    [SerializeField] GameObject strip;
+    [SerializeField] GameObject menu;
     void Awake()
     {
         Instance = this;
@@ -18,7 +21,12 @@ public class SceneManager : MonoBehaviour
         DisablePlayer();
     }
 
-
+    public void EnableShoot(){
+        shoot.SetActive(true);
+    }
+    public void DisableShoot(){
+        shoot.SetActive(false);
+    }
     public void DisableIntro(){
         intro.SetActive(false);
     }
@@ -36,5 +44,24 @@ public class SceneManager : MonoBehaviour
     }
     public void EnableUI(){
         ui.SetActive(true);
+    }
+    public void EnableStrip(){
+        strip.SetActive(true);
+    }
+    public void DisableStrip(){
+        strip.SetActive(false);
+    }
+    public void DisableMenu(){
+        menu.SetActive(false);
+    }
+
+    public void PlayGame(){
+        EnableUI();
+        EnableShoot();
+        EnablePlayer();
+
+        DisableMenu();
+        DisableIntro();
+        DisableStrip();
     }
 }
