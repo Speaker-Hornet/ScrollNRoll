@@ -11,6 +11,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject shoot;
     [SerializeField] GameObject strip;
     [SerializeField] GameObject menu;
+    [SerializeField] GameObject countdown;
     [SerializeField] Fader fader;
     void Awake()
     {
@@ -44,6 +45,7 @@ public class SceneManager : MonoBehaviour
     }
     public void EnablePlayer(){
         player.SetActive(true);
+        countdown.SetActive(true);
     }
     public void DisableUI(){
         ui.SetActive(false);
