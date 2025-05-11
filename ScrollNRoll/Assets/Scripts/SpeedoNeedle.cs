@@ -14,7 +14,6 @@ public class Speedometer : MonoBehaviour
     public float maxSpeedArrowAngle;
 
     [Header("UI")]
-    public Text speedLabel; // The label that displays the speed;
     public RectTransform arrow; // The arrow in the speedometer
 
     private float speed = 0.0f;
@@ -24,8 +23,6 @@ public class Speedometer : MonoBehaviour
         // ** The speed must be clamped by the car controller **
         speed = target.linearVelocity.magnitude * 3.6f;
 
-        if (speedLabel != null)
-            speedLabel.text = ((int)speed) + " km/h";
         if (arrow != null)
             arrow.localEulerAngles =
                 new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));

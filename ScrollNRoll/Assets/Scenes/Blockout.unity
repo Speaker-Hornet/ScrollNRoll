@@ -22903,6 +22903,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!54 &575678195 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 121777216683581631, guid: 0b52c90e0a966564d8eda3f96fc7185d, type: 3}
+  m_PrefabInstance: {fileID: 339416801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &581243748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6101139046398418730, guid: d9bfd257ffe07964fbf0f95b13e0ae12, type: 3}
@@ -39148,6 +39153,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3561866199295581455, guid: e40bfbb25685d544e8a02afe66ccdba5, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 575678195}
+    - target: {fileID: 7422806479851480182, guid: e40bfbb25685d544e8a02afe66ccdba5, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 575678195}
     - target: {fileID: 7675175473955580723, guid: e40bfbb25685d544e8a02afe66ccdba5, type: 3}
       propertyPath: m_Name
       value: UI
