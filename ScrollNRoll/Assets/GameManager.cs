@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
 
     public event Action OnAddLaps;
 
+    public float dopamineMax;
+    public float dopamineCurrent;
+    public float dopamineToDeplete;
+
+    public int ammo;
+    public int ammoToAdd;
+
     public static GameManager Instance { get; private set; }
 
 
@@ -18,6 +25,11 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         numberOfLaps = 0;
+    }
+
+    private void Start()
+    {
+        dopamineCurrent = dopamineMax;
     }
 
     private void Update()

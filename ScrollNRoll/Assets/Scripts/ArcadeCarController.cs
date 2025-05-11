@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ArcadeCarController : MonoBehaviour
 {
+    public static ArcadeCarController Instance;
+
     [Header("Car Settings")]
     [SerializeField] float acceleration = 1500f;
     [SerializeField] float maxSpeed = 50f;
@@ -10,12 +13,17 @@ public class ArcadeCarController : MonoBehaviour
     [SerializeField] float driftFactor = 0.95f;
     [SerializeField] float grip = 2f;
 
-    private Rigidbody rb;
+    [NonSerialized]public Rigidbody rb;
     private float moveInput;
     private float steerInput;
     private Vector3 localVelocity;
     [SerializeField] float lowSpeedTurnRate;
     private float lowSpeedTurnRateConst;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -30,7 +38,7 @@ public class ArcadeCarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(localVelocity);
+        //Debug.Log(localVelocity);
         localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
 
         // Limit max forward speed

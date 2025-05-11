@@ -46,3 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfLaps: 0
   goalLaps: 999
+  dopamineMax: 100
+  dopamineCurrent: 0
+  dopamineToDeplete: 5
+  ammo: 0
+  ammoToAdd: 5
