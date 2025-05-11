@@ -150,99 +150,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &720061476793063050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6861717023788733905}
-  - component: {fileID: 4669080704986784636}
-  - component: {fileID: 4814125623655576362}
-  - component: {fileID: 5042988325416756394}
-  m_Layer: 5
-  m_Name: TestNeedle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6861717023788733905
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720061476793063050}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9999254, w: 0.012216958}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 517038938563149626}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -178.6}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -375.79712, y: 87.7906}
-  m_SizeDelta: {x: 94.5, y: 162}
-  m_Pivot: {x: 1.98, y: 0.14}
---- !u!222 &4669080704986784636
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720061476793063050}
-  m_CullTransparentMesh: 1
---- !u!114 &4814125623655576362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720061476793063050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: edd1deab705efa841848098b8300b60b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &5042988325416756394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720061476793063050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb78d5412d3200ca88d5bd569a7b17f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  minHealthArrowAngle: -178
-  maxHealthArrowAngle: -80
-  healthChangeAmount: 5
-  arrow: {fileID: 6861717023788733905}
 --- !u!1 &1775000840852097290
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +256,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 875365771125439854}
-  - {fileID: 6861717023788733905}
   m_Father: {fileID: 2422279851547622259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1125,6 +1031,7 @@ GameObject:
   - component: {fileID: 875365771125439854}
   - component: {fileID: 969883412122077668}
   - component: {fileID: 4536847853690771816}
+  - component: {fileID: 2146013110204875050}
   m_Layer: 5
   m_Name: DopamineNeedle
   m_TagString: Untagged
@@ -1139,18 +1046,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7710527907273369159}
-  m_LocalRotation: {x: 0, y: 0, z: -0.115023896, w: 0.9933627}
+  m_LocalRotation: {x: 0, y: 0, z: -0.44385338, w: 0.89609945}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 517038938563149626}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.21}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -52.7}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 558, y: -280}
+  m_AnchoredPosition: {x: 35.23352, y: -34.48047}
   m_SizeDelta: {x: 189, y: 162}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.14, y: 0.88}
 --- !u!222 &969883412122077668
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1189,3 +1096,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2146013110204875050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710527907273369159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb78d5412d3200ca88d5bd569a7b17f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  minHealthArrowAngle: -52
+  maxHealthArrowAngle: 47.72
+  healthChangeAmount: 5
+  arrow: {fileID: 875365771125439854}
