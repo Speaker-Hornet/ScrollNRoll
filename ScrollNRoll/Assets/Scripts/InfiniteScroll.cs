@@ -22,6 +22,11 @@ public class InfiniteScroll : MonoBehaviour
     Vector2 oldVelocity;
     bool isUpdated;
 
+    public Sprite meme1;
+    public Sprite meme2;
+    public Sprite meme3;
+    public Sprite meme4;
+
     private void Awake()
     {
         isUpdated = false;
@@ -42,6 +47,37 @@ public class InfiniteScroll : MonoBehaviour
             {
                 GameObject newRils = Instantiate(rils, contentRect);
                 items.Add(newRils);
+
+
+                int x = Random.Range(1, 5);
+                switch (x)
+                {
+                    case 1:
+                        {
+                            newRils.GetComponent<Image>().sprite = meme1;
+                        }
+                        break;
+                    case 2:
+                        {
+                            newRils.GetComponent<Image>().sprite = meme2;
+                        }
+                        break;
+                    case 3:
+                        {
+                            newRils.GetComponent<Image>().sprite = meme3;
+                        }
+                        break;
+                    case 4:
+                        {
+                            newRils.GetComponent<Image>().sprite = meme4;
+                        }
+                        break;
+                    default:
+                        {
+                            Debug.LogError("????? SPRAJT MEME NE VALJA");
+                        }
+                        break;
+                }
             }
         }
     }
@@ -50,9 +86,9 @@ public class InfiniteScroll : MonoBehaviour
     {
         oldVelocity = scrollRect.velocity;
 
-        if (Mathf.Abs(startingPos.y - contentRect.anchoredPosition.y) > 37500)
+        if (Mathf.Abs(startingPos.y - contentRect.anchoredPosition.y) > 37500*2)
         {
-            Refresh();
+            //Refresh();
             Spawn();
         }
 
@@ -61,34 +97,50 @@ public class InfiniteScroll : MonoBehaviour
 
     public void Spawn()
     {
-        for (int i = 0; i < 10; i++)
+        // First, clear old items
+        foreach (var item in items)
         {
-            Destroy(items[0]);
-            items.RemoveAt(0);
-            int r = Random.Range(0, 100);
-            Debug.Log("RANDOM " + r);
+            Destroy(item); // Just destroy the item directly (no need for .gameObject)
+        }
+        items.Clear(); // Clear the list immediately
 
-            if (r <= 5)
+        // Then, spawn new ones
+        for (int i = 0; i < 150; i++)
+        {
+            int r = Random.Range(0, 100);
+            GameObject newRils;
+
+            if (r <= chanceForAdd) // Fixed: Now matches Awake() logic
             {
-                Debug.Log("ril");
-                GameObject newRils = Instantiate(rils, contentRect);
-                items.Add(newRils);
+                newRils = Instantiate(reklama, contentRect);
             }
             else
             {
-                Debug.Log("reklama");
-                GameObject newRils = Instantiate(reklama, contentRect);
-                items.Add(newRils);
+                newRils = Instantiate(rils, contentRect);
+
+                // Assign random sprite
+                int x = Random.Range(1, 5); // Fixed: Now includes case 4
+                Image img = newRils.GetComponent<Image>();
+
+                switch (x)
+                {
+                    case 1: img.sprite = meme1; break;
+                    case 2: img.sprite = meme2; break;
+                    case 3: img.sprite = meme3; break;
+                    case 4: img.sprite = meme4; break;
+                    default: Debug.LogError("Invalid meme sprite!"); break;
+                }
             }
+
+            items.Add(newRils);
         }
+
+        // Reset scroll position AFTER spawning new items
+        Refresh();
     }
 
     public void Refresh()
     {
-        
-
-        contentRect.anchoredPosition = startingPos;
-
-        
+        contentRect.anchoredPosition = startingPos; 
     }
 }

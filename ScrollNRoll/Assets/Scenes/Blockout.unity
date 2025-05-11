@@ -1670,10 +1670,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrainRoot
       objectReference: {fileID: 0}
-    - target: {fileID: 1312541049591217447, guid: 7833ac7def96def40b15a3aa5c2e5355, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5940362758667579029, guid: 7833ac7def96def40b15a3aa5c2e5355, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16012,6 +16008,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 255640172838157742, guid: 0b52c90e0a966564d8eda3f96fc7185d, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 255640172838157742, guid: 0b52c90e0a966564d8eda3f96fc7185d, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1297172826797835448, guid: 0b52c90e0a966564d8eda3f96fc7185d, type: 3}
@@ -38127,6 +38127,10 @@ PrefabInstance:
     - target: {fileID: 7564513819844089313, guid: d9bfd257ffe07964fbf0f95b13e0ae12, type: 3}
       propertyPath: m_Name
       value: ShootingHud
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564513819844089313, guid: d9bfd257ffe07964fbf0f95b13e0ae12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7754728051988770193, guid: d9bfd257ffe07964fbf0f95b13e0ae12, type: 3}
       propertyPath: m_Pivot.x
