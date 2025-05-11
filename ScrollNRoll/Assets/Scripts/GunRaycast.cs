@@ -20,6 +20,8 @@ public GameObject newEnemyButton;
 
     private Vector2 cursorPos;
 
+    [SerializeField] ParticleSystem pow;
+
     void Start()
     {
         // Start in center of screen
@@ -44,6 +46,7 @@ public GameObject newEnemyButton;
 
     void Fire()
     {
+        pow.Play();
         Ray ray = fpsCam.ScreenPointToRay(cursorUI.position);
         RaycastHit hit;
 
