@@ -68,7 +68,11 @@ public class SoundManager : MonoBehaviour
     public void PlayShootSound() => audioSource.PlayOneShot(shootClip);
     public void PlayReloadSound() => audioSource.PlayOneShot(reloadClip);
     public void PlayNoAmmoSound() => audioSource.PlayOneShot(noAmmoClip);
-    
+
+    // Gun
+    public void PlayAccelerateSound() => audioSource.PlayOneShot(accelerateClip);
+    public void PlayDecelerateSound() => audioSource.PlayOneShot(slowDownClip);
+
     // BrainRot
     public void PlayBrainRotSound() => audioSource.PlayOneShot(brainRotClip);
 

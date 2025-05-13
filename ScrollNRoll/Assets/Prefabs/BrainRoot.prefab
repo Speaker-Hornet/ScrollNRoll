@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5940362758667579029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -275,12 +275,13 @@ MonoBehaviour:
   contentLayoutGroup: {fileID: 660217628215999282}
   reklama: {fileID: 1385240363806513705, guid: f978bedb260d082488718dc483e99b38, type: 3}
   rils: {fileID: 717828834570640674, guid: 32b1e630a5a80324eae4358da46c31ad, type: 3}
-  chanceForAdd: 5
+  chanceForAdd: 4
   items: []
   meme1: {fileID: 21300000, guid: 09e3584140d0b5440a8628feff9cc254, type: 3}
   meme2: {fileID: 21300000, guid: 22d3a9ff49dceed4c9cd11947d06adf8, type: 3}
   meme3: {fileID: 21300000, guid: ac990d87c4f6342459588c32bf98e173, type: 3}
   meme4: {fileID: 21300000, guid: 49e2a66a6151e9840811ca61a8dfc232, type: 3}
+  scrollClickClick: {fileID: 0}
 --- !u!114 &6201058854445357804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +311,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8504770470297881158}
+        m_TargetAssemblyTypeName: InfiniteScroll, Assembly-CSharp
+        m_MethodName: ValueChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8353529958720129298
 GameObject:
   m_ObjectHideFlags: 0

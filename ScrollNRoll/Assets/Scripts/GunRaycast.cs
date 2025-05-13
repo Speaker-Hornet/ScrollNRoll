@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunRaycast : MonoBehaviour
 {
@@ -19,6 +21,12 @@ public GameObject newEnemyButton;
     public Quaternion spawnRotation = Quaternion.identity;
 
     private Vector2 cursorPos;
+
+    public Image pucImage;
+
+    public Sprite puc1;
+    public Sprite puc2;
+    public Sprite puc3;
 
     [SerializeField] ParticleSystem pow;
 
@@ -52,6 +60,26 @@ public GameObject newEnemyButton;
     void Fire()
     {
         pow.Play();
+        int r = Random.Range(0, 3);
+        switch(r)
+        {
+            case 0:
+                {
+                    pucImage.sprite = puc1;
+                }break;
+            case 1:
+                {
+                    pucImage.sprite = puc2;
+                }
+                break;
+            case 2:
+                {
+                    pucImage.sprite = puc3;
+                }
+                break;
+            }
+        pucImage.gameObject.SetActive(true);
+        SoundManager.Instance.PlayShootSound();
         Ray ray = fpsCam.ScreenPointToRay(cursorUI.position);
         RaycastHit hit;
 
@@ -63,9 +91,19 @@ public GameObject newEnemyButton;
             Health target = hit.transform.GetComponent<Health>();
             if (target != null)
             {
-                target.TakeDamage(20);
+                target.TakeDamage(1);
             }
-        } 
+        }
+
+        StartCoroutine(WaitThenDoSomething());
+    }
+
+    IEnumerator WaitThenDoSomething()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        pucImage.gameObject.SetActive(false);
+
     }
 
     void SpawnCube()

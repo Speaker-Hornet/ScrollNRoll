@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1609084118301387288}
   - component: {fileID: 2018904025959721968}
   m_Layer: 5
-  m_Name: Strip
+  m_Name: strip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

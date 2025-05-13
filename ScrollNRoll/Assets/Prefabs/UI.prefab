@@ -891,14 +891,13 @@ GameObject:
   - component: {fileID: 4990928033911792162}
   - component: {fileID: 5533272067426788196}
   - component: {fileID: 9007630543483239681}
-  - component: {fileID: 1444210054181668755}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2422279851547622259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1007,19 +1006,6 @@ MonoBehaviour:
   upSprite: {fileID: 21300000, guid: fbf1c836b8345c848970604f2f7aa054, type: 3}
   downSprite: {fileID: 21300000, guid: abeed1045e976c54ab9c45c4eb3d426e, type: 3}
   idleSprite: {fileID: 21300000, guid: c6a59fd47dda5f6478a23ba30dfb47df, type: 3}
---- !u!114 &1444210054181668755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675175473955580723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c88c27d15f282e4db89b344f4d9a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 5902292050542794882}
 --- !u!1 &7710527907273369159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb78d5412d3200ca88d5bd569a7b17f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   minHealthArrowAngle: -52
   maxHealthArrowAngle: 47.72
   healthChangeAmount: 5

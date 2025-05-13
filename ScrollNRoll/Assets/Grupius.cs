@@ -154,7 +154,7 @@ public class Grupius : MonoBehaviour
         material.mainTexture = state2;
         yield return new WaitForSeconds(thirdState);
         material.mainTexture = state3;
-        GameManager.Instance.dopamineCurrent -= GameManager.Instance.dopamineToDeplete;
+        GameManager.Instance.dopamineCurrent -= GameManager.Instance.stats.FlyingEnemyDmg;
         yield return new WaitForSeconds(reset);
         material.mainTexture = state0;
 

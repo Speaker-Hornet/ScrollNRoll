@@ -53,7 +53,9 @@ public class Bloker : MonoBehaviour
 
         ArcadeCarController.Instance.rb.linearVelocity /= 4f;
 
-        GameManager.Instance.dopamineCurrent -= 10f;
+        GetComponent<AudioSource>().Play();
+
+        GameManager.Instance.dopamineCurrent -= GameManager.Instance.stats.StandingEnemyDmg;
 
         Destroy(this);
     }

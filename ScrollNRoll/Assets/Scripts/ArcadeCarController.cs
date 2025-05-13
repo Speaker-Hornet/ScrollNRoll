@@ -20,20 +20,38 @@ public class ArcadeCarController : MonoBehaviour
     [SerializeField] float lowSpeedTurnRate;
     private float lowSpeedTurnRateConst;
 
+    private float keepAcc;
+
+
     private void Awake()
     {
         Instance = this;
+        keepAcc = acceleration;
     }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
+
+            rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        if (GameManager.Instance.elapsedTime <= 3f)
+        {
+            acceleration = 0f;
+        }
+        else
+        {
+            acceleration = keepAcc;
+        }
+
         moveInput = Input.GetAxis("Vertical");
+   
+
         steerInput = Input.GetAxis("Horizontal");
+   
     }
 
     void FixedUpdate()

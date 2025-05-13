@@ -1,23 +1,25 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public int numberOfLaps;
-    public int goalLaps;
+    [NonSerialized]public int goalLaps;
     [NonSerialized]public bool startLinePassed;
     [NonSerialized]public bool midLinePassed;
     private bool ready;
 
     public event Action OnAddLaps;
 
-    public float dopamineMax;
+    [NonSerialized]public float dopamineMax;
     public float dopamineCurrent;
-    public float dopamineToDeplete;
+    [NonSerialized] public float dopamineToDeplete;
 
-    public int ammo;
-    public int ammoToAdd;
+    [NonSerialized] public int ammo;
+    [NonSerialized] public int ammoToAdd;
 
     public GameObject rils;
     public GameObject guns;
@@ -27,20 +29,42 @@ public class GameManager : MonoBehaviour
 
     public GunRaycast shoot;
 
+    //public event Action OnAddAmmo;
 
 
     public bool started;
 
+    public GameObject win;
 
+    [NonSerialized] public float timeToBeatRace;
+    public TextMeshProUGUI timerText;
+    public float elapsedTime;
+
+    public GameObject lose;
+
+    public ParticleSystem bigPow;
 
     public static GameManager Instance { get; private set; }
+
+    public STATSOVI stats;
 
 
     private void Awake()
     {
         Instance = this;
         numberOfLaps = 0;
+        dopamineMax = stats.DopamineMax;
+        timeToBeatRace = stats.TimeToBeatRace;
+        ammoToAdd = stats.AmmoAddedOnBuy;
+        goalLaps = stats.NumberOfLaps;
+        ammo = stats.AmmoOnStart;
 
+    }
+    
+    public void AddAmmo()
+    {
+        bigPow.Play();
+        //OnAddAmmo?.Invoke();
     }
 
     private void Start()
@@ -50,14 +74,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(dopamineCurrent > 100)
+        {
+            dopamineCurrent = 100;
+        }
+
         if(started)
         {
             dopamineCurrent -= Time.deltaTime;
-        }
 
-        if(dopamineCurrent <= 0)
-        {
-            Defeat();
+            if(dopamineCurrent <= 0)
+            {
+                Defeat();
+            }
+
+            elapsedTime += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            if(elapsedTime >= timeToBeatRace)
+            {
+                Defeat();
+            }
         }
 
         if (startLinePassed && midLinePassed)
@@ -123,11 +162,21 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-        //logic
+        win.SetActive(true);
+        GameManager.Instance.GetComponent<AudioSource>().mute = true;
+        Cursor.visible = true;
     }
 
     public void Defeat()
     {
+        lose.SetActive(true);
+        GameManager.Instance.GetComponent<AudioSource>().mute = true;
+        Cursor.visible = true;
 
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

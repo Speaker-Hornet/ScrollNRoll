@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -13,7 +14,7 @@ public class InfiniteScroll : MonoBehaviour
     public GameObject reklama; // 5% chance
     public GameObject rils; // 95% chance
 
-    public int chanceForAdd;
+    [NonSerialized]public int chanceForAdd;
 
     public List<GameObject> items;
 
@@ -27,16 +28,19 @@ public class InfiniteScroll : MonoBehaviour
     public Sprite meme3;
     public Sprite meme4;
 
+    private int scrollTracker = 0;
+    public ParticleSystem scrollClickClick;
+
     private void Awake()
     {
         isUpdated = false;
         oldVelocity = Vector2.zero;
-
+        chanceForAdd = GameManager.Instance.stats.PercentChanceForAdToAppear;
         startingPos = contentRect.anchoredPosition;
 
         for (int i = 0; i < 150; i++)
         {
-            int r = Random.Range(0, 100);
+            int r = UnityEngine.Random.Range(0, 100);
 
             if (r <= chanceForAdd)
             {
@@ -49,7 +53,7 @@ public class InfiniteScroll : MonoBehaviour
                 items.Add(newRils);
 
 
-                int x = Random.Range(1, 5);
+                int x = UnityEngine.Random.Range(1, 5);
                 switch (x)
                 {
                     case 1:
@@ -82,13 +86,19 @@ public class InfiniteScroll : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        scrollReached();
+    }
+
     private void FixedUpdate()
     {
         oldVelocity = scrollRect.velocity;
 
-        if (Mathf.Abs(startingPos.y - contentRect.anchoredPosition.y) > 37500*2)
+        //Debug.Log(Mathf.Abs(startingPos.y - contentRect.anchoredPosition.y));
+        if (Mathf.Abs(startingPos.y - contentRect.anchoredPosition.y) > 5000)
         {
-            //Refresh();
+            Refresh();
             Spawn();
         }
 
@@ -107,19 +117,20 @@ public class InfiniteScroll : MonoBehaviour
         // Then, spawn new ones
         for (int i = 0; i < 150; i++)
         {
-            int r = Random.Range(0, 100);
+            int r = UnityEngine.Random.Range(0, 100);
             GameObject newRils;
 
             if (r <= chanceForAdd) // Fixed: Now matches Awake() logic
             {
                 newRils = Instantiate(reklama, contentRect);
+                newRils.GetComponent<Fejk>().a.Resetplz();
             }
             else
             {
                 newRils = Instantiate(rils, contentRect);
 
                 // Assign random sprite
-                int x = Random.Range(1, 5); // Fixed: Now includes case 4
+                int x = UnityEngine.Random.Range(1, 5); // Fixed: Now includes case 4
                 Image img = newRils.GetComponent<Image>();
 
                 switch (x)
@@ -136,11 +147,25 @@ public class InfiniteScroll : MonoBehaviour
         }
 
         // Reset scroll position AFTER spawning new items
-        Refresh();
+        //Refresh();
     }
 
     public void Refresh()
     {
         contentRect.anchoredPosition = startingPos; 
+    }
+
+    public void ValueChanged()
+    {
+        scrollTracker++;
+    }
+
+    public void scrollReached()
+    {
+        if (scrollTracker >= 10)
+        {
+            scrollClickClick.Play();
+            scrollTracker = 0;
+        }
     }
 }
