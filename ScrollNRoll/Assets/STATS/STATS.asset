@@ -15,11 +15,11 @@ MonoBehaviour:
   <TimeToBeatRace>k__BackingField: 120
   <NumberOfLaps>k__BackingField: 2
   <StandingEnemyDmg>k__BackingField: 5
-  <FlyingEnemyDmg>k__BackingField: 5
+  <FlyingEnemyDmg>k__BackingField: 10
   <AmmoAddedOnBuy>k__BackingField: 10
   <AmmoOnStart>k__BackingField: 20
   <HitsRequiredToKill>k__BackingField: 2
   <DopamineAddedOnKill>k__BackingField: 5
   <DopamineAddedOnAmmoBuy>k__BackingField: 5
   <DopamineMax>k__BackingField: 100
-  <PercentChanceForAdToAppear>k__BackingField: 4
+  <PercentChanceForAdToAppear>k__BackingField: 10

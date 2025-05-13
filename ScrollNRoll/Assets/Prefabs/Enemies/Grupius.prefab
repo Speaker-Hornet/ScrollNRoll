@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6802345498625833859}
   - component: {fileID: -4280692013397519921}
   - component: {fileID: 3056820411476484811}
+  - component: {fileID: 1012470032207555390}
   m_Layer: 0
   m_Name: Grupius
   m_TagString: Untagged
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514b4ca38cd478048ae61715f00cabea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
   material: {fileID: 2100000, guid: 357e981935b48304cbb0b5bbf98ce3c7, type: 2}
   texture: {fileID: 2800000, guid: db152baf8fbccb943a8e5bb63dfa5977, type: 3}
   groupious: 1
@@ -153,3 +153,21 @@ MonoBehaviour:
   state2: {fileID: 2800000, guid: f8fa9162cf0899d49a75287e00154ab7, type: 3}
   state3: {fileID: 2800000, guid: 58c5f22277c03154a8ce1a2e71473ed5, type: 3}
   material: {fileID: 2100000, guid: 357e981935b48304cbb0b5bbf98ce3c7, type: 2}
+  amplitude: 0.5
+  frequency: 1
+--- !u!114 &1012470032207555390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294988615058143418}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eab9c29883830d43a5b34095e2a7777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.5
+  frequency: 1
+  addRotation: 0
+  rotationSpeed: 0

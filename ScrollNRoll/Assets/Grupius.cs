@@ -51,9 +51,14 @@ public class Grupius : MonoBehaviour
 
     public Material material;
 
-
-
     private float currentTime;
+
+     [Header("Oscillation Settings")]
+    [Tooltip("How far the object moves up and down")]
+    [SerializeField] float amplitude = 0.5f;
+    
+    [Tooltip("How fast the object oscillates")]
+    [SerializeField] float frequency = 1.0f;
 
     private void Start()
     {
@@ -130,6 +135,8 @@ public class Grupius : MonoBehaviour
 
         // Set the object's position
         transform.position = worldPosition;
+        float newY = transform.position.y + amplitude * Mathf.Sin(frequency * Time.time);
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
         // Face the camera if enabled
         if (faceCamera)

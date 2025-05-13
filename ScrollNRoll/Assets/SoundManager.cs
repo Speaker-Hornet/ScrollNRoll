@@ -36,12 +36,23 @@ public class SoundManager : MonoBehaviour
     public AudioClip laserClip2;
     public AudioClip laserClip3;
     public AudioClip laserClip4;
+    public AudioClip switchClip;
+    public AudioClip switchEndClip;
     
     public static SoundManager Instance { get; private set; }
 
     private List<AudioClip> dieClips = new List<AudioClip>();
     private List<AudioClip> hitClips = new List<AudioClip>();
     private List<AudioClip> laserClips = new List<AudioClip>();
+
+    [Range(0f, 1f)] public float masterVolume = 1f;
+    [Range(0f, 1f)] public float switchVolume = 1f;
+    [Range(0f, 1f)] public float gunVolume = 1f;
+    [Range(0f, 1f)] public float gunNoAmmoVolume = 1f;
+    [Range(0f, 1f)] public float hitVolume = 1f;
+    [Range(0f, 1f)] public float enemyDieVolume = 1f;
+    [Range(0f, 1f)] public float raceTimerVolume = 1f;
+
 
     private void Awake()
     {
@@ -58,34 +69,32 @@ public class SoundManager : MonoBehaviour
     }
 
 
+
     // Ui
     public void PlayClickSound() => audioSource.PlayOneShot(clickClip);
-
     // World
     public void PlaySirenSound() => audioSource.PlayOneShot(clickClip);
-
     // Gun
-    public void PlayShootSound() => audioSource.PlayOneShot(shootClip);
+    public void PlayShootSound() => audioSource.PlayOneShot(shootClip,gunVolume*masterVolume);
     public void PlayReloadSound() => audioSource.PlayOneShot(reloadClip);
-    public void PlayNoAmmoSound() => audioSource.PlayOneShot(noAmmoClip);
-
-    // Gun
+    public void PlayNoAmmoSound() => audioSource.PlayOneShot(noAmmoClip,gunNoAmmoVolume*masterVolume);
+    // Car
+    public void PlaySwitchSound() => audioSource.PlayOneShot(switchClip,switchVolume*masterVolume);
+    public void PlaySwitchEndSound() => audioSource.PlayOneShot(switchEndClip,switchVolume*masterVolume);
     public void PlayAccelerateSound() => audioSource.PlayOneShot(accelerateClip);
     public void PlayDecelerateSound() => audioSource.PlayOneShot(slowDownClip);
-
     // BrainRot
     public void PlayBrainRotSound() => audioSource.PlayOneShot(brainRotClip);
-
     // Enemy
     public void PlayDieSound()
     {
         int randomIndex = Random.Range(0, dieClips.Count);
-        audioSource.PlayOneShot(dieClips[randomIndex]);
+        audioSource.PlayOneShot(dieClips[randomIndex],enemyDieVolume*masterVolume);
     }
     public void PlayHitSound()
     {
         int randomIndex = Random.Range(0, hitClips.Count);
-        audioSource.PlayOneShot(hitClips[randomIndex]);
+        audioSource.PlayOneShot(hitClips[randomIndex],hitVolume*masterVolume);
     }
     public void PlayLaserSound()
     {

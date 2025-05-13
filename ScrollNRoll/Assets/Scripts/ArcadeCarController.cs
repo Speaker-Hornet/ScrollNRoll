@@ -8,6 +8,7 @@ public class ArcadeCarController : MonoBehaviour
 
     [Header("Car Settings")]
     [SerializeField] float acceleration = 1500f;
+    [SerializeField] float deceleration = 800f;
     [SerializeField] float maxSpeed = 50f;
     [SerializeField] float steering = 80f;
     [SerializeField] float driftFactor = 0.95f;
@@ -31,9 +32,7 @@ public class ArcadeCarController : MonoBehaviour
 
     void Start()
     {
-        
-
-            rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -56,13 +55,16 @@ public class ArcadeCarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log(localVelocity);
         localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
 
         // Limit max forward speed
         if (localVelocity.z < maxSpeed && localVelocity.z > -maxSpeed)
         {
-            rb.AddForce(transform.forward * moveInput * acceleration * Time.fixedDeltaTime);
+            if (localVelocity.z >= 0){
+            rb.AddForce(transform.forward * moveInput * acceleration * Time.fixedDeltaTime);}
+            if (localVelocity.z < 0){
+            rb.AddForce(transform.forward * moveInput * deceleration * Time.fixedDeltaTime);}
+
         }
 
         // Steering

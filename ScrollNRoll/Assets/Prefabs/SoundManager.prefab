@@ -193,3 +193,12 @@ MonoBehaviour:
   laserClip2: {fileID: 8300000, guid: 32104d2ba9ab5d3b3b84a2b38c70fb35, type: 3}
   laserClip3: {fileID: 8300000, guid: 589c0714b5aaf6f55981f663758d54d9, type: 3}
   laserClip4: {fileID: 8300000, guid: b961eba55e251a8749240463ba3a4758, type: 3}
+  switchClip: {fileID: 8300000, guid: 1ad17f616472950429886e53797edb3b, type: 3}
+  switchEndClip: {fileID: 8300000, guid: 28b33468eda93de40809daf19e8a4206, type: 3}
+  masterVolume: 1
+  switchVolume: 0.377
+  gunVolume: 0.226
+  gunNoAmmoVolume: 0.403
+  hitVolume: 0.377
+  enemyDieVolume: 0.387
+  raceTimerVolume: 0.538
