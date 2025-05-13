@@ -12,8 +12,6 @@ public class StartLine : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-
         if (!other.CompareTag("Player")) return;
 
         if(line == Line.Start)

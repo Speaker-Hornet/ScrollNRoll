@@ -33,10 +33,12 @@ public class ArcadeCarController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        GameManager.Instance.mobileMode();
     }
 
     void Update()
     {
+        if (GameManager.Instance.isDead) return;
         if (GameManager.Instance.elapsedTime <= 3f)
         {
             acceleration = 0f;
@@ -47,14 +49,12 @@ public class ArcadeCarController : MonoBehaviour
         }
 
         moveInput = Input.GetAxis("Vertical");
-   
-
         steerInput = Input.GetAxis("Horizontal");
-   
     }
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.isDead) return;
         localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
 
         // Limit max forward speed

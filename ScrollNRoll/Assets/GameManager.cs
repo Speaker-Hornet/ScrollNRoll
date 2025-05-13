@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class GameManager : MonoBehaviour
 
     public STATSOVI stats;
 
+    public int mode = 1;
+    public bool isDead=false;
+
+    public bool loading = true;
 
     private void Awake()
     {
@@ -81,7 +86,7 @@ public class GameManager : MonoBehaviour
 
         if(started)
         {
-            dopamineCurrent -= Time.deltaTime;
+            dopamineCurrent -= Time.deltaTime*1.3f;
 
             if(dopamineCurrent <= 0)
             {
@@ -104,25 +109,24 @@ public class GameManager : MonoBehaviour
             ready = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(1) && !loading)
         {
+            mode++;
             if (rils.activeSelf == true)
             {
-                rils.SetActive(false);
-
-
+                /*rils.SetActive(false);
                 guns.SetActive(true);
                 Cursor.visible = false;
-                shoot.canShoot = true;
+                shoot.canShoot = true;*/
+                gunMode();
             }
             else
             {
-                rils.SetActive(true);
-
-
+                /*rils.SetActive(true);
                 guns.SetActive(false);
                 Cursor.visible = true;
-                shoot.canShoot = false;
+                shoot.canShoot = false;*/
+                mobileMode();
             }
         }
 
@@ -130,12 +134,20 @@ public class GameManager : MonoBehaviour
         lapText.text = numberOfLaps.ToString() + "/2";
     }
 
+    void gunMode(){
+        rils.SetActive(false);
+        guns.SetActive(true);
+        Cursor.visible = false;
+        shoot.canShoot = true;
+    }
+    public void mobileMode(){
+        rils.SetActive(true);
+        guns.SetActive(false);
+        Cursor.visible = true;
+        shoot.canShoot = false;
+    }
     public void CheckLine(string line)
     {
-        Debug.Log("start" + "-" + startLinePassed);
-        Debug.Log("mid" + "-" + midLinePassed);
-        Debug.Log("ready" + "-" + ready);
-
         if(startLinePassed && midLinePassed && ready && line.Equals("Start"))
         {
             AddLaps();
@@ -147,8 +159,6 @@ public class GameManager : MonoBehaviour
     public void AddLaps()
     {
         numberOfLaps++;
-
-        Debug.Log(numberOfLaps + " !!!!!!!!!!!!!!!!!!!!!!");
 
         if(numberOfLaps == goalLaps)
         {
@@ -169,10 +179,30 @@ public class GameManager : MonoBehaviour
 
     public void Defeat()
     {
+        isDead = true;
+        StartCoroutine(RotateAndDefeat());
+        /*lose.SetActive(true);
+        GameManager.Instance.GetComponent<AudioSource>().mute = true;
+        Cursor.visible = true;*/
+        
+    }
+
+        private IEnumerator RotateAndDefeat(){
+        Quaternion targetRotation = Quaternion.Euler(-90f, ArcadeCarController.Instance.gameObject.transform.eulerAngles.y, ArcadeCarController.Instance.gameObject.transform.eulerAngles.z);
+
+        while (Quaternion.Angle(ArcadeCarController.Instance.gameObject.transform.rotation, targetRotation) > 0.1f){
+            ArcadeCarController.Instance.gameObject.transform.rotation = Quaternion.Lerp(ArcadeCarController.Instance.gameObject.transform.rotation, targetRotation, Time.deltaTime * 0.2f);
+            yield return null;
+        }
+
+        // Snap to final rotation just in case
+        ArcadeCarController.Instance.transform.rotation = targetRotation;
+
+        // Now execute post-rotation defeat logic
+        isDead = true;
         lose.SetActive(true);
         GameManager.Instance.GetComponent<AudioSource>().mute = true;
         Cursor.visible = true;
-
     }
 
     public void QuitGame()

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class SceneManager : MonoBehaviour
     }
     public void EnableStrip(){
         strip.SetActive(true);
+        GameManager.Instance.loading = true;
         StartCoroutine(WaitAndExecute());
     }
     public void DisableStrip(){
@@ -68,6 +70,7 @@ public class SceneManager : MonoBehaviour
     }
 
 
+
     
 
     public void PlayGame(){
@@ -78,7 +81,12 @@ public class SceneManager : MonoBehaviour
         DisableMenu();
         DisableIntro();
         DisableStrip();
-
         GameManager.Instance.started = true;
+        GameManager.Instance.loading=false;
+    }
+
+    public void Restart(){
+        Scene scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name);
     }
 }

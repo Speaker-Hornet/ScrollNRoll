@@ -45,7 +45,7 @@ public GameObject newEnemyButton;
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (GameManager.Instance.ammo <= 0) return;
+            if (GameManager.Instance.ammo <= 0) {SoundManager.Instance.PlayNoAmmoSound(); return;}
             if (!canShoot) return;
             Fire();
             GameManager.Instance.ammo -= 1;
