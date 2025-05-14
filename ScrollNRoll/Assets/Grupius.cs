@@ -60,8 +60,14 @@ public class Grupius : MonoBehaviour
     [Tooltip("How fast the object oscillates")]
     [SerializeField] float frequency = 1.0f;
 
+    MeshRenderer meshRenderer;
+    Material mat;
+
     private void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
+        mat = meshRenderer.material;
+
         currentTime = 0f;
 
         if (targetCamera == null)
@@ -156,15 +162,20 @@ public class Grupius : MonoBehaviour
     IEnumerator WaitThenDoSomething()
     {
         yield return new WaitForSeconds(firstState);
-        material.mainTexture = state1;
+        //material.mainTexture = state1;
+        mat.SetTexture("_Texture2D",state1);
+        
         yield return new WaitForSeconds(secondState);
-        material.mainTexture = state2;
-        yield return new WaitForSeconds(thirdState);
-        material.mainTexture = state3;
-        GameManager.Instance.dopamineCurrent -= GameManager.Instance.stats.FlyingEnemyDmg;
-        yield return new WaitForSeconds(reset);
-        material.mainTexture = state0;
+        mat.SetTexture("_Texture2D",state2);
 
+        yield return new WaitForSeconds(thirdState);
+        mat.SetTexture("_Texture2D",state3);
+        GameManager.Instance.dopamineCurrent -= GameManager.Instance.stats.FlyingEnemyDmg;
+        SceneManager.Instance.EnableHurtUI();
+
+
+        yield return new WaitForSeconds(reset);
+        mat.SetTexture("_Texture2D",state0);
         StartCoroutine(WaitThenDoSomething());
     }
 }

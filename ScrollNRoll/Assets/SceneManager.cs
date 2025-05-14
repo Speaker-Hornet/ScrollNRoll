@@ -13,6 +13,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject strip;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject countdown;
+    [SerializeField] GameObject hurtUI;
     [SerializeField] Fader fader;
     void Awake()
     {
@@ -66,13 +67,21 @@ public class SceneManager : MonoBehaviour
         menu.SetActive(false);
     }
     public void FadeToBlackAndBack(){
-        fader.FadeToBlackAndBack();
+        //fader.FadeToBlackAndBack();
+    }
+    public void EnableHurtUI(){
+        hurtUI.SetActive(true);
+        StartCoroutine(DiableHurtUIOnTimer());
+    }
+    public void DisableHurtUI(){
+        hurtUI.SetActive(false);
     }
 
-
-
-    
-
+    public void SkipStrip(){
+        StopCoroutine(WaitAndExecute());
+        StopAllCoroutines();
+        PlayGame();
+    }
     public void PlayGame(){
         EnableUI();
         EnableShoot();
@@ -89,4 +98,10 @@ public class SceneManager : MonoBehaviour
         Scene scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene.name);
     }
+
+        IEnumerator DiableHurtUIOnTimer(){
+            yield return new WaitForSeconds(0.5f);
+            DisableHurtUI();
+
+        }
 }

@@ -14,21 +14,30 @@ public class Health : MonoBehaviour
     private bool dead;
 
     public bool groupious;
+    BoxCollider bc;
+
+    EnemyFlash ef;
+
 
     private void Awake()
     {
         health = GameManager.Instance.stats.HitsRequiredToKill;
+        if (GetComponent<BoxCollider>()) bc = GetComponent<BoxCollider>();
+        if (GetComponent<EnemyFlash>()) ef = GetComponent<EnemyFlash>();
     }
+
 
     public void TakeDamage(float amount)
     {
         SoundManager.Instance.PlayHitSound();
         health -= amount;
-        Debug.Log(gameObject.name + " took " + amount + " damage. Remaining: " + health);
+        if (ef) ef.TakeDamage();
         if (health <= 0f)
         {
+            if (bc) bc.enabled = false;
             Die();
         }
+
     }
 
     private void Update()

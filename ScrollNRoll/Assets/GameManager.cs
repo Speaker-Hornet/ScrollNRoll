@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float elapsedTime;
 
+    public float elapsedTimeDown;
+
     public GameObject lose;
 
     public ParticleSystem bigPow;
@@ -75,6 +77,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         dopamineCurrent = dopamineMax;
+        elapsedTimeDown = timeToBeatRace;
+
     }
 
     private void Update()
@@ -86,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         if(started)
         {
-            dopamineCurrent -= Time.deltaTime*1.3f;
+            dopamineCurrent -= Time.deltaTime*1.5f;
 
             if(dopamineCurrent <= 0)
             {
@@ -94,8 +98,11 @@ public class GameManager : MonoBehaviour
             }
 
             elapsedTime += Time.deltaTime;
-            int minutes = Mathf.FloorToInt(elapsedTime / 60);
-            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            elapsedTimeDown -= Time.deltaTime;
+            int minutes = Mathf.FloorToInt(elapsedTimeDown / 60);
+            int seconds = Mathf.FloorToInt(elapsedTimeDown % 60);
+
+
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
             if(elapsedTime >= timeToBeatRace)

@@ -11,6 +11,9 @@ public class Bloker : MonoBehaviour
     public Texture2D slika1;
     public Texture2D slika2;
 
+    MeshRenderer meshRenderer;
+    Material mat;
+
     private void Awake()
     {
         int r = UnityEngine.Random.Range(1, 3);
@@ -23,10 +26,15 @@ public class Bloker : MonoBehaviour
         {
             material.mainTexture = slika2;
         }
+
+
+        meshRenderer = GetComponent<MeshRenderer>();
+        mat = meshRenderer.material;
     }
 
     public void Start()
     {
+
         StartCoroutine(WaitThenDoSomething());
     }
 
@@ -34,13 +42,15 @@ public class Bloker : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         
-        if(material.mainTexture == slika1)
+        /*if(material.mainTexture == slika1)*/ if (mat.GetTexture("_Texture2D")==slika1)
         {
-            material.mainTexture = slika2;
+            //material.mainTexture = slika2;
+            mat.SetTexture("_Texture2D",slika2);
         }
         else
         {
-            material.mainTexture = slika1;
+            //material.mainTexture = slika1;
+            mat.SetTexture("_Texture2D",slika1);
         }
             StartCoroutine(WaitThenDoSomething());
     }
@@ -49,6 +59,8 @@ public class Bloker : MonoBehaviour
     {
         if (!collider.gameObject.CompareTag("Player")) return;
 
+        GetComponent<BoxCollider>().enabled= false;
+
         GameManager.Instance.dopamineCurrent -= GameManager.Instance.dopamineToDeplete;
 
         ArcadeCarController.Instance.rb.linearVelocity /= 4f;
@@ -56,7 +68,10 @@ public class Bloker : MonoBehaviour
         GetComponent<AudioSource>().Play();
 
         GameManager.Instance.dopamineCurrent -= GameManager.Instance.stats.StandingEnemyDmg;
+        SceneManager.Instance.EnableHurtUI();
+        
 
         Destroy(this);
     }
+    
 }

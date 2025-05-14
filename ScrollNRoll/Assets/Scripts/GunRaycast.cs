@@ -85,8 +85,6 @@ public GameObject newEnemyButton;
 
         if (Physics.Raycast(ray, out hit, range))
         {
-            Debug.Log("Hit " + hit.collider.name);
-
             // Optional: apply damage if the object has a Health component
             Health target = hit.transform.GetComponent<Health>();
             if (target != null)

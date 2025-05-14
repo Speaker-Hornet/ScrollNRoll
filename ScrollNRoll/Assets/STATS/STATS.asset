@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe0b84e02fd56c4bb5250b11e16ab0f, type: 3}
   m_Name: STATS
   m_EditorClassIdentifier: 
-  <TimeToBeatRace>k__BackingField: 120
+  <TimeToBeatRace>k__BackingField: 135
   <NumberOfLaps>k__BackingField: 2
   <StandingEnemyDmg>k__BackingField: 5
   <FlyingEnemyDmg>k__BackingField: 10
-  <AmmoAddedOnBuy>k__BackingField: 10
+  <AmmoAddedOnBuy>k__BackingField: 5
   <AmmoOnStart>k__BackingField: 20
   <HitsRequiredToKill>k__BackingField: 2
   <DopamineAddedOnKill>k__BackingField: 10
