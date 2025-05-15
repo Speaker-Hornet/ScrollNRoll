@@ -83,14 +83,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(dopamineCurrent > 100)
+        if(dopamineCurrent > dopamineMax)
         {
-            dopamineCurrent = 100;
+            dopamineCurrent = dopamineMax;
         }
 
         if(started)
         {
-            dopamineCurrent -= Time.deltaTime*1.5f;
+            dopamineCurrent -= Time.deltaTime;
 
             if(dopamineCurrent <= 0)
             {
@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        Time.timeScale = 0f;
         win.SetActive(true);
         GameManager.Instance.GetComponent<AudioSource>().mute = true;
         Cursor.visible = true;

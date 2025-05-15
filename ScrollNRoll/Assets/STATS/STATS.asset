@@ -19,7 +19,7 @@ MonoBehaviour:
   <AmmoAddedOnBuy>k__BackingField: 5
   <AmmoOnStart>k__BackingField: 20
   <HitsRequiredToKill>k__BackingField: 2
-  <DopamineAddedOnKill>k__BackingField: 10
-  <DopamineAddedOnAmmoBuy>k__BackingField: 10
-  <DopamineMax>k__BackingField: 100
+  <DopamineAddedOnKill>k__BackingField: 5
+  <DopamineAddedOnAmmoBuy>k__BackingField: 5
+  <DopamineMax>k__BackingField: 30
   <PercentChanceForAdToAppear>k__BackingField: 10
